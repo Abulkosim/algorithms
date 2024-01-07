@@ -27,7 +27,3 @@ function radixSort(nums) {
   }
   return nums;
 }
-
-// Sample array to sort
-let arr = [23, 345, 5467, 12, 2345, 9852];
-console.log("Sorted Array:", radixSort(arr));

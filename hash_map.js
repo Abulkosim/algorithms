@@ -47,12 +47,3 @@ class HashMap {
     return false;
   }
 }
-
-// Example Usage
-const hashMap = new HashMap();
-hashMap.set('name', 'John');
-hashMap.set('age', 30);
-console.log(hashMap.get('name')); // Outputs: John
-console.log(hashMap.get('age'));  // Outputs: 30
-hashMap.remove('age');
-console.log(hashMap.get('age'));  // Outputs: undefined
