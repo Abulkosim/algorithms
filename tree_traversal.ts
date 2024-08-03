@@ -12,7 +12,6 @@ function walkTree(tree: Tree<number> | null, result: number[]): void {
     result.push(tree.value);
     walkTree(tree.left, result);
     walkTree(tree.right, result);
-
 }
 
 const sampleTree = {
@@ -45,12 +44,9 @@ const sampleTree = {
     }
 };
 
-
 function checkFunction() {
     const result = []
-
     walkTree(sampleTree, result)
-
     console.log(result)
 }
 
