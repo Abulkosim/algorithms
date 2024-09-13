@@ -1,4 +1,4 @@
-function mergeSort(arr) {
+function mSort(arr) {
   if (arr.length <= 1) {
     return arr;
   }
@@ -7,7 +7,7 @@ function mergeSort(arr) {
   const left = arr.slice(0, middle);
   const right = arr.slice(middle);
 
-  return merge(mergeSort(left), mergeSort(right));
+  return merge(mSort(left), mSort(right));
 }
 
 function merge(left, right) {
