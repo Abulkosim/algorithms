@@ -1,43 +1,19 @@
-function walkTree(tree, result) {
-    if (tree == null) {
+function tTraversal(tree, order) {
+    if (tree === null || tree === undefined)
         return;
+    if (order === 'pre') {
+        console.log(tree.value);
+        tTraversal(tree.left, order);
+        tTraversal(tree.right, order);
     }
-    result.push(tree.value);
-    walkTree(tree.left, result);
-    walkTree(tree.right, result);
-}
-var sampleTree = {
-    value: 1,
-    left: {
-        value: 2,
-        left: {
-            value: 4,
-            left: null,
-            right: null
-        },
-        right: {
-            value: 5,
-            left: null,
-            right: null
-        }
-    },
-    right: {
-        value: 3,
-        left: {
-            value: 6,
-            left: null,
-            right: null
-        },
-        right: {
-            value: 7,
-            left: null,
-            right: null
-        }
+    if (order === 'in') {
+        tTraversal(tree.left, order);
+        console.log(tree.value);
+        tTraversal(tree.right, order);
     }
-};
-function checkFunction() {
-    var result = [];
-    walkTree(sampleTree, result);
-    console.log(result);
+    if (order === 'post') {
+        tTraversal(tree.left, order);
+        tTraversal(tree.right, order);
+        console.log(tree.value);
+    }
 }
-checkFunction();

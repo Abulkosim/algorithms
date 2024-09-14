@@ -12,7 +12,7 @@ class BinarySearchTree<T> {
   private root: Node<T> | null = null;
 
   insert(value: T): void {
-    const newNode = new Node(value);
+    const newNode = new Node<T>(value);
 
     if (!this.root) {
       this.root = newNode;

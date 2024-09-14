@@ -1,53 +1,27 @@
-type Tree<T> = {
+type smapleNode<T> = {
     value: T;
-    left: Tree<T>;
-    right: Tree<T>;
+    left: smapleNode<T> | null;
+    right: smapleNode<T> | null;
 }
 
-function walkTree(tree: Tree<number> | null, result: number[]): void {
-    if (tree == null) {
-        return;
+function tTraversal<T>(tree: smapleNode<T> | null, order: 'pre' | 'in' | 'post') {
+    if (tree === null || tree === undefined) return;
+
+    if (order === 'pre') {
+        console.log(tree.value);
+        tTraversal(tree.left, order);
+        tTraversal(tree.right, order);
     }
 
-    result.push(tree.value);
-    walkTree(tree.left, result);
-    walkTree(tree.right, result);
-}
-
-const sampleTree = {
-    value: 1,
-    left: {
-        value: 2,
-        left: {
-            value: 4,
-            left: null,
-            right: null
-        },
-        right: {
-            value: 5,
-            left: null,
-            right: null
-        }
-    },
-    right: {
-        value: 3,
-        left: {
-            value: 6,
-            left: null,
-            right: null
-        },
-        right: {
-            value: 7,
-            left: null,
-            right: null
-        }
+    if (order === 'in') {
+        tTraversal(tree.left, order);
+        console.log(tree.value);
+        tTraversal(tree.right, order);
     }
-};
 
-function checkFunction() {
-    const result = []
-    walkTree(sampleTree, result)
-    console.log(result)
+    if (order === 'post') {
+        tTraversal(tree.left, order);
+        tTraversal(tree.right, order);
+        console.log(tree.value);
+    }
 }
-
-checkFunction()

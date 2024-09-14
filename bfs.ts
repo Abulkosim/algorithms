@@ -6,7 +6,7 @@ type TreeNode<T> = {
 
 function bfs(tree: TreeNode<number> | null, target: number): boolean {
     
-    if (tree === null) return false;
+    if (tree === null || tree === undefined) return false;
     
     const queue: TreeNode<number>[] = [tree];
 
