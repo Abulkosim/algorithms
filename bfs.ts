@@ -5,11 +5,15 @@ type TreeNode<T> = {
 }
 
 function bfs(tree: TreeNode<number> | null, target: number): boolean {
-    const queue = [tree];
+    
+    if (tree === null) return false;
+    
+    const queue: TreeNode<number>[] = [tree];
 
     while (queue.length) {
         const node = queue.shift();
 
+        if (node === undefined) continue;
         if (node.value === target) return true;
         if (node.left) queue.push(node.left)
         if (node.right) queue.push(node.right)
@@ -18,7 +22,7 @@ function bfs(tree: TreeNode<number> | null, target: number): boolean {
     return false
 }
 
-const sampleTree = {
+const treeSample = {
     value: 12,
     left: {
         value: 282,
@@ -52,4 +56,4 @@ const sampleTree = {
     }
 }
 
-console.log(bfs(sampleTree, 282))
+console.log(bfs(treeSample, 282))

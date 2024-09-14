@@ -8,7 +8,3 @@ function quickSort(arr: number[]): number[] {
 
   return [...quickSort(left), ...middle, ...quickSort(right)];
 }
-
-const unsortedArray = [3, 6, 8, 10, 1, 2, 1];
-const sortedArray = quickSort(unsortedArray);
-console.log(sortedArray); // Output: [1, 1, 2, 3, 6, 8, 10]
